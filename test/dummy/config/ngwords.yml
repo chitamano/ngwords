@@ -1,0 +1,21 @@
+defaults: &defaults
+  en:
+    - shit
+    - id password input
+  ja:
+    - 白痴
+    - ID パスワード 入力
+
+development:
+  <<: *defaults
+
+test:
+  en:
+    - test
+    - Multiple word validation
+  ja:
+    - テスト
+    - 複数 ワード 検証
+
+production:
+  <<: *defaults

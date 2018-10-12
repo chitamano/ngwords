@@ -8,7 +8,7 @@ module ActiveModel
       def validate_each(record, attribute, value)
         return if value.blank?
         if Moji.normalize_zen_han(value) =~ ngwords
-          record.errors.add(attribute, I18n.t('activerecord.errors.messages.includes_ngwords', default: 'includes prohibited words.'))
+          record.errors.add(attribute, I18n.t('activerecord.errors.messages.includes_ngwords', default: ' includes prohibited words.'))
         end
       end
 

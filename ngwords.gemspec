@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'ngwords'
   s.version     = Ngwords::VERSION
   s.authors     = ['chitamano']
-  s.email       = ['yonesuke3000@gmail.com']
+  s.email       = ['chitamanokokoro@gmail.com']
   s.homepage    = 'https://github.com/chitamano/ngwords'
   s.summary     = 'Ngwords prevents prohibited words from being registered in your application.'
   s.description = 'Ngwords prevents prohibited words from being registered in your application. The prohibited word list can be set in the YAML data format. Ngwords currently only works with Rails.'

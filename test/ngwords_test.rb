@@ -55,6 +55,11 @@ class Ngwords::Test < ActiveSupport::TestCase
     refute post.valid?
   end
 
+  test 'rejects invalid multiline zenkaku value for en' do
+    post = Post.new(title: 'hello world', body: "my name is hoge. ｍultiＰle ｗoＲd\n vaLiｄation")
+    refute post.valid?
+  end
+
   # accept test for ja
   test 'accepts valid value for ja' do
     post = Post.new(title: 'こんにちは世界', body: '私の名前はほげです。')
@@ -94,6 +99,11 @@ class Ngwords::Test < ActiveSupport::TestCase
 
   test 'rejects invalid multiple hankaku value for ja' do
     post = Post.new(title: 'こんにちは世界', body: '私の名前はほげです。複数の禁止ﾜｰﾄﾞを含む検証です')
+    refute post.valid?
+  end
+
+  test 'rejects invalid multiline hankaku value for ja' do
+    post = Post.new(title: 'こんにちは世界', body: "私の名前はほげです。複数の禁止ﾜｰﾄﾞを\n含む検証です")
     refute post.valid?
   end
 end

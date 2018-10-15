@@ -21,7 +21,7 @@ module ActiveModel
           delim = lang == :en ? '\\b' : ''
           Array(list).reject(&:blank?).each do |ngword|
             escaped_ngword = ngword.split(/\p{blank}/).reject(&:blank?).map { |word| '(?=.*' + delim + Regexp.escape(word) + delim + ')' }.join('')
-            ngwords.push(Regexp.compile("^#{escaped_ngword}", Regexp::IGNORECASE | Regexp::MULTILINE))
+            ngwords << Regexp.compile("^#{escaped_ngword}", Regexp::IGNORECASE | Regexp::MULTILINE)
           end
         end
         @@ngwords = Regexp.union(ngwords)
